@@ -1,20 +1,25 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:edit, :update, :destroy]
+  before_action :authenticate_user
 
   # GET /questions
   # GET /questions.json
   def index
     @questions = Question.all
+    @question_create = true
   end
 
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @questions = Question.all
+    @question_create = true
   end
 
   # GET /questions/new
   def new
     @question = Question.new
+    @new_button = true
   end
 
   # GET /questions/1/edit
@@ -28,8 +33,8 @@ class QuestionsController < ApplicationController
 
     respond_to do |format|
       if @question.save
-        format.html { redirect_to @question, notice: 'Question was successfully created.' }
-        format.json { render :show, status: :created, location: @question }
+        format.html { redirect_to '/questions', notice: 'Question was successfully created.' }
+        format.json { render :index, status: :created}
       else
         format.html { render :new }
         format.json { render json: @question.errors, status: :unprocessable_entity }
@@ -42,8 +47,8 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html { redirect_to @question, notice: 'Question was successfully updated.' }
-        format.json { render :show, status: :ok, location: @question }
+        format.html { redirect_to '/questions', notice: 'Question was successfully updated.' }
+        format.json { render :index, status: :ok }
       else
         format.html { render :edit }
         format.json { render json: @question.errors, status: :unprocessable_entity }

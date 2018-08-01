@@ -1,2 +1,64 @@
-<h1>Pages#result</h1>
-<p>Find me in app/views/pages/result.html.erb</p>
+<div class="main questions-index">
+  <div class="container">
+    <!-- <h1 class="users-heading">ジャンル一覧</h1> -->
+    <div class="row">
+      <div class="col s12">
+        <div class="questions-index-item">
+          <div class="col s4">
+            <div class="question-second-column">Question</div>
+          </div>
+          <div class="col s4">
+            <div class="question-right">
+              <div class="question-third-column">Answer</div>
+            </div>
+          </div>
+          <div class="col s2">
+            <div class="question-right">
+              <div>Result</div>
+            </div>
+          </div>
+          <div class="col s2">
+            <div class="question-right">
+              <div>Last Result</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12">  
+        <div class="questions-index-item">
+          <div class="col s4">
+            <div class="question-second-column"><%== @question.question %></div>
+          </div>
+          <div class="col s4">
+            <div class="question-right">
+              <div class="question-third-column"><%= @question.answer %></div>
+            </div>
+          </div>
+          <div class="col s2 question-created-date">
+            <div class="question-right">
+              <div><%= @result.result%></div>
+            </div>
+          </div>
+          <div class="col s2 question-created-date">
+            <div class="question-right">
+              <div><%= @result.result_bef%></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s12">  
+        <div class="massage">
+        <% if @result.result == "◯" %>
+        <%= link_to("You are great! Please move to the next step! ", "/") %>
+        <% else %>
+        <%= link_to("Cheer up! Let's try next question! ", "/") %>
+        <% end %>
+        </div>
+       
+      </div>
+
+    </div>
+
+  </div>
+</div>

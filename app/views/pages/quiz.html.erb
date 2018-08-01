@@ -1,2 +1,29 @@
-<h1>Pages#quiz</h1>
-<p>Find me in app/views/pages/quiz.html.erb</p>
+<div class="main quiz">
+  <div class="container">
+    <div class="row">
+      <%= form_tag("/#{@question.id}/judge") do %>
+        <div class="form">
+          <div class="form-body">
+            <div class="col s12">
+            	<h2><%== @question.question %></h2>
+              <div class="input-field col s12">
+                <div class="input-field col s12">
+                  <input id="answer" name="answer" type="text" class="validate" value="">
+                  <label for="answer" class="active">Answer<span class="required">*</span></label>
+                </div>
+                <div class="form-error col s12">
+                  When you write a number more than two digits as answer, please use number. 
+                  e.g) ◯ 25 × twenty-five
+                </div>
+              </div>
+            </div>
+            <div class="col s12">
+              <button class="waves-effect waves-light btn pull-right save-post" type="submit">Submit</button>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

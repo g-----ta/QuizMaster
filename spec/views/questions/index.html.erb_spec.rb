@@ -4,11 +4,11 @@ RSpec.describe "questions/index", type: :view do
   before(:each) do
     assign(:questions, [
       Question.create!(
-        :question => "MyText",
+        :question => "Question",
         :answer => "Answer"
       ),
       Question.create!(
-        :question => "MyText",
+        :question => "Question",
         :answer => "Answer"
       )
     ])
@@ -16,7 +16,7 @@ RSpec.describe "questions/index", type: :view do
 
   it "renders a list of questions" do
     render
-    assert_select "tr>td", :text => "MyText".to_s, :count => 2
-    assert_select "tr>td", :text => "Answer".to_s, :count => 2
+    assert_select ".question-second-column", :text => "Question".to_s, :count => 3
+    assert_select ".question-third-column", :text => "Answer".to_s, :count => 3
   end
 end

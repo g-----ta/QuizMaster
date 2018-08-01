@@ -1,2 +1,37 @@
-<h1>Users#login_form</h1>
-<p>Find me in app/views/users/login_form.html.erb</p>
+<div class="main user-login teal">
+  <div class="container">
+    <div id="login-page" class="row">
+    <div class="col s12 z-depth-4 card-panel">
+      <div class="form-body">
+        <div class="row">
+          <div class="input-field col s12 center">
+            <img src="/logo.png" alt="" class="">
+          </div>
+        </div>
+        <% if @error_message %>
+          <div class="form-error">
+            <%= @error_message %>
+          </div>
+        <% end %>
+
+        <%= form_tag("/login") do %>
+        <div class="row margin">
+          <div class="input-field col s12">
+            <i class="fa fa-user prefix" aria-hidden="true"></i>
+            <input id="name" name="name" type="text" class="validate" value="<%= @name %>">
+            <label for="name" class="active">User Name<span class="required">*</span></label>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+          <button class="waves-effect waves-light btn pull-right" type="submit">Sign in</button>
+          </div>
+        </div>
+        <% end %>
+        
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
