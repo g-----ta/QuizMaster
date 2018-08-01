@@ -2,24 +2,35 @@ require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
 
-  describe "GET #quiz" do
-    it "returns http success" do
+  let(:valid_attributes) {
+    {id: 10000, question: 'Question', answer: 'answer'}
+  }
+
+  let(:invalid_attributes) {
+    {question: '', answer: ''}
+  }
+
+  let(:valid_session) { {} }
+
+  describe "GET pages#quiz" do
+    it "confirm @question exists" do
       get :quiz
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(302)
     end
   end
 
-  describe "GET #result" do
+  describe "GET pages#result" do
     it "returns http success" do
       get :result
-      expect(response).to have_http_status(:success)
+      expect(response).to have_http_status(302)
     end
   end
 
-  describe "GET #judge" do
-    it "returns http success" do
-      get :judge
-      expect(response).to have_http_status(:success)
+  describe "POST pages#judge" do
+    it "should be checked judge method" do
+      question = Question.create! valid_attributes
+      post :judge, params: {id: question.id}, session: valid_session
+      expect(response).to have_http_status(302)
     end
   end
 
