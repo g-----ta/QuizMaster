@@ -1,24 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+### You can play QuizMaster App via below URL. 
+[QuizMasterApp on Heroku](https://thawing-plains-96119.herokuapp.com/login)
 
-* Ruby version
 
-* System dependencies
+### How to play QuizMaster App
 
-* Configuration
+If you are the first user to manage this app, please create questions first. 
 
-* Database creation
 
-* Database initialization
+### How to create new questions
 
-* How to run the test suite
+On login page, please type "**admin**". 
 
-* Services (job queues, cache servers, search engines, etc.)
+Then you can create any question you want to ask. 
 
-* Deployment instructions
 
-* ...
+### How to play App
+
+1. Please type any name you want on login page. (This app manages users result by user name. )
+2. Just answer the questions!
